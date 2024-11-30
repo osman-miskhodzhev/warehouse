@@ -1,0 +1,10 @@
+<head>
+    <title>Таблица Product</title>
+</head>
+<ul>
+    <li><a href="{% url "products:add_product" %}">Добавить продукт</a></li>
+</ul>
+<p>Название | Количество</p>
+{% for product in products %}
+    <p>{{ product.name }} | {{ product.quantity }} {{ product.unit.name }} <a href="{% url "products:update_product" product.id %}">Редактировать</a> <a href="{% url "products:delete_product" product.id %}">Удалить</a></p>
+{% endfor %}

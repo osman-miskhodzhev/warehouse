@@ -20,29 +20,31 @@ Units
     name
 
 Shipment
-    id
-    ShippingInvoice_id
-    Product_id
+- id
+- ShippingInvoice_id
+- Product_id
 
 ShippingInvoice
-    id
-    Conterparty_id
+- id
+- Conterparty_id
 
 ### Registration
 Provider
-    id
-    name
+- id
+- name
 
 Arrival
-    id
-    ArrivalInvoice_id
-    Product_id
+- id
+- ArrivalInvoice_id
+- Product_id
 
 ArrivalInvoice
-    id
-    Provider_id
+- id
+- Provider_id
 
-- [ ] CRUD Product
+
+#### Задачи:
+- [x] CRUD Product
 - [ ] CRUD Units
 - [ ] CRUD Сounterparty
 - [ ] CRUD Shipment
