@@ -1,23 +1,23 @@
 # warehouse
 информационная система по управлению складом
 
-Модель бд и распределение про приложениям:
+## Модель бд и распределение про приложениям:
 
 ### Products
 Product
-    id
-    name
-    quantity
-    units (Связь с таблицей Units)
+- id
+- name
+- quantity
+- units (Связь с таблицей Units)
 
 Units
-    id
-    name
+- id
+- name
 
 ### shipping
 Сounterparty
-    id
-    name
+- id
+- name
 
 Shipment
 - id
@@ -45,7 +45,7 @@ ArrivalInvoice
 
 #### Задачи:
 - [x] CRUD Product
-- [ ] CRUD Units
+- [x] CRUD Units
 - [ ] CRUD Сounterparty
 - [ ] CRUD Shipment
 - [ ] CRUD ShippingInvoice

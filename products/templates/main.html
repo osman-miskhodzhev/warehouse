@@ -3,8 +3,14 @@
 </head>
 <ul>
     <li><a href="{% url "products:add_product" %}">Добавить продукт</a></li>
+    <li><a href="{% url "products:add_unit" %}">Добавить единицу измерения</a></li>
 </ul>
-<p>Название | Количество</p>
+<h4>Название | Количество</h4>
 {% for product in products %}
     <p>{{ product.name }} | {{ product.quantity }} {{ product.unit.name }} <a href="{% url "products:update_product" product.id %}">Редактировать</a> <a href="{% url "products:delete_product" product.id %}">Удалить</a></p>
+{% endfor %}
+
+<h4>Название</h4>
+{% for unit in units %}
+    <p>{{ unit.name }} <a href="{% url "products:update_unit" unit.id %}">Редактировать</a> <a href="{% url "products:delete_unit" unit.id %}">Удалить</a> </p>
 {% endfor %}
