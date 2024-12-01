@@ -8,13 +8,6 @@ from .models import Product, Unit
 from .forms import ProductForm, UnitForm
 
 
-def main(request):
-    template = 'main.html'
-    context = {
-        'products': Product.objects.all()
-    }
-    return render(request, template, context)
-
 class MainView(TemplateView):
     template_name = "main.html"
 

@@ -1,6 +1,19 @@
 # warehouse
 информационная система по управлению складом
 
+#### Задачи:
+- [x] CRUD Product
+- [x] CRUD Units
+- [x] CRUD Сounterparty
+- [x] CRUD Shipment
+- [x] CRUD ShippingInvoice
+- [ ] CRUD Provider
+- [ ] CRUD Arrival
+- [ ] CRUD ArrivalInvoice
+- [ ] Настроить разграничение прав доступа
+- [ ] Реализовать авторизацию
+- [ ] Настроить регистрацию новых сотрудников в админ панели
+
 ## Модель бд и распределение про приложениям:
 
 ### Products
@@ -41,17 +54,3 @@ Arrival
 ArrivalInvoice
 - id
 - Provider_id
-
-
-#### Задачи:
-- [x] CRUD Product
-- [x] CRUD Units
-- [ ] CRUD Сounterparty
-- [ ] CRUD Shipment
-- [ ] CRUD ShippingInvoice
-- [ ] CRUD Provider
-- [ ] CRUD Arrival
-- [ ] CRUD ArrivalInvoice
-- [ ] Настроить разграничение прав доступа
-- [ ] Реализовать авторизацию
-- [ ] Настроить регистрацию новых сотрудников в админ панели

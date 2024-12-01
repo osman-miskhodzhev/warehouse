@@ -20,6 +20,7 @@ ALLOWED_HOSTS = ['192.168.0.102', '192.168.0.104', '192.168.0.103']
 
 INSTALLED_APPS = [
     'products.apps.ProductsConfig',
+    'shipping.apps.ShippingConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

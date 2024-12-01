@@ -1,0 +1,60 @@
+<h1>Выгрузки</h1>
+<h3>Контрагенты</h3>
+<a href=" {% url "shipping:add_counterparty" %} ">Добавить контрагента</a>
+<table border=" 1">
+    <tr>
+        <th>Название</th>
+        <th>Операции</th>
+    </tr>
+    {% for counterparty in contractors %}
+        <tr>
+            <td>{{ counterparty.name }}</td>
+            <td>
+                <a href='{% url "shipping:update_counterparty" counterparty.id %}'>Редактировать</a>
+                <a href='{% url "shipping:delete_counterparty" counterparty.id %}'>Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h3>Накладные</h3>
+<a href="{% url "shipping:add_invoice" %}">Добавить накладную</a>
+<table border=" 1">
+    <tr>
+        <th>Номер накладной</th>
+        <th>Контрагент</th>
+        <th>Операции</th>
+    </tr>
+    {% for invoice in shippingInvoice %}
+        <tr>
+            <td>{{ invoice.id }}</td>
+            <td>{{ invoice.conterparty.name }}</td>
+            <td>
+                <a href='{% url "shipping:update_invoice" invoice.id %}'>Редактировать</a>
+                <a href='{% url "shipping:delete_invoice" invoice.id %}'>Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h3>Выгрузки</h3>
+<a href="{% url "shipping:add_shipment" %}">Добавить выгрузку</a>
+<table border=" 1">
+    <tr>
+        <th>Номер выгрузки</th>
+        <th>Номер накладной</th>
+        <th>Наименование товара</th>
+        <th>Операции</th>
+    </tr>
+    {% for shipment in shipments %}
+        <tr>
+            <td>{{ shipment.id }}</td>
+            <td>{{ shipment.shippingInvoice.id }}</td>
+            <td>{{ shipment.product.name }}</td>
+            <td>
+                <a href='{% url "shipping:update_shipment" shipment.id %}'>Редактировать</a>
+                <a href='{% url "shipping:delete_shipment" shipment.id %}'>Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
