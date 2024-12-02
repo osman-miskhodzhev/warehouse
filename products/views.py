@@ -20,7 +20,7 @@ class MainView(TemplateView):
 
 class ProductAdd(CreateView):
     form_class = ProductForm
-    template_name = 'add.html'
+    template_name = 'form.html'
     succes_url = 'products:main'
 
     def form_valid(self, form):
@@ -30,7 +30,7 @@ class ProductAdd(CreateView):
 
 class ProductUpdate(UpdateView):
     model = Product
-    template_name = 'add.html'
+    template_name = 'form.html'
     success_url = reverse_lazy('products:main')
     fields = ('name', 'quantity')
 
@@ -45,7 +45,7 @@ class ProductDelete(DeleteView):
 
 class UnitAdd(CreateView):
     form_class = UnitForm
-    template_name = 'add.html'
+    template_name = 'form.html'
     succes_url = 'products:main'
 
     def form_valid(self, form):
@@ -55,7 +55,7 @@ class UnitAdd(CreateView):
 
 class UnitUpdate(UpdateView):
     model = Unit
-    template_name = 'add.html'
+    template_name = 'form.html'
     success_url = reverse_lazy('products:main')
     fields = ('name',)
 

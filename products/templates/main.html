@@ -1,16 +1,45 @@
-<head>
-    <title>Таблица Product</title>
-</head>
-<ul>
-    <li><a href="{% url "products:add_product" %}">Добавить продукт</a></li>
-    <li><a href="{% url "products:add_unit" %}">Добавить единицу измерения</a></li>
-</ul>
-<h4>Название | Количество</h4>
-{% for product in products %}
-    <p>{{ product.name }} | {{ product.quantity }} {{ product.unit.name }} <a href="{% url "products:update_product" product.id %}">Редактировать</a> <a href="{% url "products:delete_product" product.id %}">Удалить</a></p>
-{% endfor %}
+{% extends "base.html" %}
+{% block content %}
+<h2>Товары</h2>
+<a href="{% url "products:add_product" %}" class="btn-add">Добавить продукт</a>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Количество</th>
+        <th>Единица измерения</th>
+        <th>Операции</th>
+    </tr>
+    {% for header in products.headers %}
+        {{header}}
+    {% endfor %}
+    {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td> {{ product.quantity }} </td>
+            <td> {{ product.unit.name }} </td>
+            <td>
+                <a href="{% url "products:update_product" product.id %}" class="btn-update">Редактировать</a>
+                <a href="{% url "products:delete_product" product.id %}" class="btn-delete">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
 
-<h4>Название</h4>
-{% for unit in units %}
-    <p>{{ unit.name }} <a href="{% url "products:update_unit" unit.id %}">Редактировать</a> <a href="{% url "products:delete_unit" unit.id %}">Удалить</a> </p>
-{% endfor %}
+<h2>Единицы измерения</h2>
+<a href="{% url "products:add_unit" %}" class="btn-add">Добавить единицу измерения</a>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Операции</th>
+    </tr>
+    {% for unit in units %}
+        <tr>
+            <td>{{ unit.name }}</td>
+            <td>
+                <a href="{% url "products:update_unit" unit.id %}" class="btn-update">Редактировать</a>
+                <a href="{% url "products:delete_unit" unit.id %}" class="btn-delete">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

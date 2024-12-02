@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url "products:main" %}">Главная</a>
+        <a href="{% url "shipping:mainview" %}">Расходы</a>
+    </nav>
+    {% block content %}{% endblock content %}
+
+</body>
+</html>
