@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Приходы</h1>
+
+<h3>Поставщики</h3>
+<a href="{% url "uploading:add_provider" %}" class="btn-add">Добавить контерагента</a>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Операции</th>
+    </tr>
+    {% for provider in providers %}
+        <tr>
+            <td>{{ provider.name }}</td>
+            <td>
+                <a href="{% url "uploading:update_provider" provider.id %}" class="btn-update">Редактировать</a>
+                <a href="{% url "uploading:delete_provider" provider.id %}" class="btn-delete">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+    
+</table>
+
+<h3>Накладные</h3>
+<a href="{% url "uploading:add_invoice" %}" class="btn-add">Добавить накладную</a>
+<table>
+    <tr>
+        <th>Номер накладной</th>
+        <th>Поставщик</th>
+        <th>Операции</th>
+    </tr>
+    {% for invocie in invocies %}
+        <tr>
+            <td>{{ invocie.id }}</td>
+            <td>{{ invocie.provider.name }}</td>
+            <td>
+                <a href="{% url "uploading:update_invoice" invocie.id %}" class="btn-update">Редактировать</a>
+                <a href="{% url "uploading:delete_invoice" invocie.id %}" class="btn-delete">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+    
+</table>
+
+
+<h3>Приходы</h3>
+<a href="{% url "uploading:add_upload" %}" class="btn-add">Добавить накладную</a>
+<table>
+    <tr>
+        <th>Номер накладной</th>
+        <th>Товар</th>
+        <th>Операции</th>
+    </tr>
+    {% for upload in uploads %}
+        <tr>
+            <td>{{ upload.invoice.id }}</td>
+            <td>{{ upload.product.name }}</td>
+            <td>
+                <a href="{% url "uploading:update_upload" upload.id %}" class="btn-update">Редактировать</a>
+                <a href="{% url "uploading:delete_upload" upload.id %}" class="btn-delete">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+    
+</table>
+
+
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Расходы</h1>
+
+<h3>Контрагенты</h3>
+<a href="{% url "shipping:add_counterparty" %}" class="btn-add">Добавить контерагента</a>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Операции</th>
+    </tr>
+    {% for contractor in contractors %}
+        <tr>
+            <td>{{ contractor.name }}</td>
+            <td>
+                <a href="{% url "shipping:update_counterparty" contractor.id %}" class="btn-update">Редактировать</a>
+                <a href="{% url "shipping:delete_counterparty" contractor.id %}" class="btn-delete">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h2>Накладные</h2>
+<a href="{% url "shipping:add_invoice" %}" class="btn-add">Добавить накладную</a>
+<table>
+    <tr>
+        <th>Контрагент</th>
+        <th>Операции</th>
+    </tr>
+    {% for invoice in shippingInvoices %}
+        <tr>
+            <td>{{ invoice.conterparty.name }}</td>
+            <td>
+                <a href="{% url "shipping:update_invoice" invoice.id %}" class="btn-update">Редактировать</a>
+                <a href="{% url "shipping:delete_invoice" invoice.id %}" class="btn-delete">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h2>Выгрузки</h2>
+<a href="{% url "shipping:add_shipment" %}" class="btn-add">Добавить выгрузку</a>
+<table>
+    <tr>
+        <th>Накладная</th>
+        <th>Товар</th>
+        <th>Операции</th>
+    </tr>
+    {% for shipment in shipments %}
+        <tr>
+            <td>{{ shipment.shippingInvoice.id }}</td>
+            <td>{{ shipment.product.name }}</td>
+            <td>
+                <a href="{% url "shipping:update_shipment" shipment.id %}" class="btn-update">Редактировать</a>
+                <a href="{% url "shipping:delete_shipment" shipment.id %}" class="btn-delete">Удалить</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

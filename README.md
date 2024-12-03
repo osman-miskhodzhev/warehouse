@@ -7,12 +7,13 @@
 - [x] CRUD Сounterparty
 - [x] CRUD Shipment
 - [x] CRUD ShippingInvoice
-- [ ] CRUD Provider
-- [ ] CRUD Arrival
-- [ ] CRUD ArrivalInvoice
+- [x] CRUD Provider
+- [x] CRUD Upload
+- [x] CRUD UploadInvoice
 - [ ] Настроить разграничение прав доступа
 - [ ] Реализовать авторизацию
 - [ ] Настроить регистрацию новых сотрудников в админ панели
+- [ ] Апельсины	10	ящик - реализовать склонение 
 
 ## Модель бд и распределение про приложениям:
 
@@ -41,7 +42,7 @@ ShippingInvoice
 - id
 - Conterparty_id
 
-### Registration
+### Upload
 Provider
 - id
 - name

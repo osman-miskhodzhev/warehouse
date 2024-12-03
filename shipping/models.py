@@ -23,7 +23,7 @@ class ShippingInvoice(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return f'Накладная № {self.id}'
     
     class Meta:
         verbose_name='Накладная на выгрузку'
@@ -41,7 +41,7 @@ class Shipment(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return f'Выгрузка {self.product.name} по накладной № {self.shippingInvoice.id}'
     
     class Meta:
         verbose_name='Выгрузка'

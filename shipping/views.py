@@ -9,12 +9,12 @@ from .forms import СounterpartyForm, ShippingInvoiceForm, ShipmentForm
 
 
 class MainView(TemplateView):
-    template_name = 'main.html'
+    template_name = 'shipping/main.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["contractors"] = Сounterparty.objects.all()
-        context["shippingInvoice"] = ShippingInvoice.objects.all()
+        context["shippingInvoices"] = ShippingInvoice.objects.all()
         context["shipments"] = Shipment.objects.all()
         return context
 
