@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.base import TemplateView
 
 from .models import Provider, UploadInvoice, Upload
 from .forms import ProviderForm, UploadInvoiceForm, UploadForm
+
 
 def main(request):
     template_name = 'upload/main.html'

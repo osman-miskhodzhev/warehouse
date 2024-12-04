@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport">
     <link rel="stylesheet" href="{% static "css/base.css" %}">
-    <title>Document</title>
+    <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
     <nav>
         <a href="{% url "products:main" %}">Главная</a>
-        <a href="{% url "shipping:mainview" %}">Расходы</a>
-        <a href="{% url "uploading:upload_view" %}">Приходы</a>
+        <a href="{% url "shipping:main" %}">Расходы</a>
+        <a href="{% url "uploading:main" %}">Приходы</a>
     </nav>
     {% block content %}{% endblock content %}
 
