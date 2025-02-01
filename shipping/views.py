@@ -1,14 +1,28 @@
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import (
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 from django.views.generic.base import TemplateView
 
-from .models import Сounterparty, ShippingInvoice, Shipment
-from .forms import СounterpartyForm, ShippingInvoiceForm, ShipmentForm
+from .models import (
+    Сounterparty,
+    ShippingInvoice,
+    Shipment
+)
+from .forms import (
+    СounterpartyForm,
+    ShippingInvoiceForm,
+    ShipmentForm
+)
 
 
 class MainView(TemplateView):
+    """Главное представление отображающее основные таблицы"""
+
     template_name = 'shipping/main.html'
 
     def get_context_data(self, **kwargs):
@@ -20,6 +34,8 @@ class MainView(TemplateView):
 
 
 class СounterpartyAdd(CreateView):
+    """Добавление Контрагента"""
+
     form_class = СounterpartyForm
     template_name = 'form.html'
     succes_url = 'shipping:mainview'
@@ -30,6 +46,8 @@ class СounterpartyAdd(CreateView):
 
 
 class СounterpartyUpdate(UpdateView):
+    """Обновление информации о Контрагенте"""
+
     model = Сounterparty
     template_name = 'form.html'
     success_url = reverse_lazy('shipping:mainview')
@@ -37,12 +55,16 @@ class СounterpartyUpdate(UpdateView):
 
 
 class СounterpartyDelete(DeleteView):
+    """Удаление Контрагента"""
+
     model = Сounterparty
     success_url = reverse_lazy('shipping:mainview')
     template_name = 'delete.html'
 
 
 class ShippingInvoiceAdd(CreateView):
+    """Добавление Накладной на выгрузку"""
+
     form_class = ShippingInvoiceForm
     template_name = 'form.html'
     succes_url = 'shipping:mainview'
@@ -53,6 +75,8 @@ class ShippingInvoiceAdd(CreateView):
 
 
 class ShippingInvoiceUpdate(UpdateView):
+    """Обновление Накладной на выгрузку"""
+
     model = ShippingInvoice
     template_name = 'form.html'
     success_url = reverse_lazy('shipping:mainview')
@@ -60,12 +84,16 @@ class ShippingInvoiceUpdate(UpdateView):
 
 
 class ShippingInvoiceDelete(DeleteView):
+    """Удаление Накладной на выгрузку"""
+
     model = ShippingInvoice
     success_url = reverse_lazy('shipping:mainview')
     template_name = 'delete.html'
 
 
 class ShipmentAdd(CreateView):
+    """Добавить Выгрузку"""
+
     form_class = ShipmentForm
     template_name = 'form.html'
     succes_url = 'shipping:mainview'
@@ -76,6 +104,8 @@ class ShipmentAdd(CreateView):
 
 
 class ShipmentUpdate(UpdateView):
+    """Обновить Выгрузку"""
+
     model = Shipment
     template_name = 'form.html'
     success_url = reverse_lazy('shipping:mainview')
@@ -83,6 +113,8 @@ class ShipmentUpdate(UpdateView):
 
 
 class ShipmentDelete(DeleteView):
+    """Удалить выгрузку"""
+
     model = Shipment
     success_url = reverse_lazy('shipping:mainview')
     template_name = 'delete.html'
